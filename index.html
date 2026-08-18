@@ -120,31 +120,22 @@
         /* Gallery */
         .gallery{background:var(--bg2);position:relative}
         .gallery::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2),transparent)}
-        .gallery-slider{position:relative;margin-top:60px;overflow:hidden;border:var(--border)}
+        .gallery-slider{position:relative;margin-top:40px;overflow:hidden}
         .gallery-track{display:flex;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1)}
-        .gallery-slide{min-width:100%;aspect-ratio:16/9;background:var(--bg);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
-        .gallery-slide img{width:100%;height:100%;object-fit:cover;cursor:pointer}
-        .gallery-slide .placeholder{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--dim)}
-        .gallery-slide .placeholder i{font-size:3rem;opacity:0.3;color:var(--gold)}
-        .gallery-dots{display:flex;justify-content:center;gap:12px;margin-top:20px}
+        .gallery-slide{min-width:100%;aspect-ratio:16/9;background:var(--bg);cursor:pointer;position:relative;overflow:hidden}
+        .gallery-slide img,.gallery-slide .video-thumb-slide img{width:100%;height:100%;object-fit:cover}
+        .gallery-dots{display:flex;justify-content:center;gap:10px;margin-top:20px}
         .gallery-dot{width:8px;height:8px;border-radius:50%;background:var(--dim);cursor:pointer;transition:all 0.3s ease}
         .gallery-dot.active{background:var(--gold);transform:scale(1.3)}
-        .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(5,5,8,0.7);border:var(--border-gold);color:var(--gold);cursor:pointer;z-index:5;transition:all 0.3s ease;font-size:1rem}
+        .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(5,5,8,0.7);border:1px solid rgba(201,168,76,0.3);color:var(--gold);cursor:pointer;z-index:5;transition:all 0.3s ease;font-size:0.9rem}
         .gallery-nav:hover{background:var(--gold);color:var(--bg)}
-        .gallery-nav.prev{left:16px}
-        .gallery-nav.next{right:16px}
-        /* Video */
-        .gallery-video-section{margin-top:40px}
-        .video-thumb{position:relative;aspect-ratio:16/9;background:var(--bg);border:var(--border);overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.4s ease}
-        .video-thumb:hover{border-color:rgba(201,168,76,0.3)}
-        .video-thumb .play-btn{width:80px;height:80px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.5rem;transition:all 0.3s ease}
-        .video-thumb:hover .play-btn{background:var(--gold);color:var(--bg);transform:scale(1.1)}
-        
-                                
-        .video-thumb-slide{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--bg);cursor:pointer}
-        .video-thumb-slide img{width:100%;height:100%;object-fit:cover}
-        .play-btn-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);transition:all 0.3s ease}
-        .video-thumb-slide:hover .play-btn-overlay{background:rgba(201,168,76,0.2)}
+        .gallery-nav.prev{left:12px}
+        .gallery-nav.next{right:12px}
+        /* Video Thumbnail in Gallery */
+        .video-thumb-slide{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--bg)}
+        .play-btn-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);pointer-events:none}
+        .play-btn-overlay .play-circle{width:60px;height:60px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.2rem;transition:all 0.3s ease}
+        .gallery-slide:hover .play-circle{background:var(--gold);color:var(--bg)}
 
         /* Lightbox */
         .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:9999;align-items:center;justify-content:center}
@@ -586,55 +577,55 @@
                 <div class="gallery-slide" onclick="openLightbox('vimeo','1219282757')">
                     <div class="video-thumb-slide">
                         <img src="https://vumbnail.com/1219282757.jpg" alt="Linimasa Hg" loading="lazy">
-                        <div class="play-btn-overlay"><i class="fas fa-play" style="margin-left:4px"></i></div>
+                        <div class="play-btn-overlay"><div class="play-circle"><i class="fas fa-play" style="margin-left:3px"></i></div></div>
                     </div>
                 </div>
                 <div class="gallery-slide" onclick="openLightbox('vimeo','1219281435')">
                     <div class="video-thumb-slide">
                         <img src="https://vumbnail.com/1219281435.jpg" alt="Linimasa (10)" loading="lazy">
-                        <div class="play-btn-overlay"><i class="fas fa-play" style="margin-left:4px"></i></div>
+                        <div class="play-btn-overlay"><div class="play-circle"><i class="fas fa-play" style="margin-left:3px"></i></div></div>
                     </div>
                 </div>
                 <div class="gallery-slide" onclick="openLightbox('vimeo','1219281404')">
                     <div class="video-thumb-slide">
                         <img src="https://vumbnail.com/1219281404.jpg" alt="Linimasa (8)" loading="lazy">
-                        <div class="play-btn-overlay"><i class="fas fa-play" style="margin-left:4px"></i></div>
+                        <div class="play-btn-overlay"><div class="play-circle"><i class="fas fa-play" style="margin-left:3px"></i></div></div>
                     </div>
                 </div>
                 <div class="gallery-slide" onclick="openLightbox('vimeo','1219281407')">
                     <div class="video-thumb-slide">
                         <img src="https://vumbnail.com/1219281407.jpg" alt="Linimasa (9)" loading="lazy">
-                        <div class="play-btn-overlay"><i class="fas fa-play" style="margin-left:4px"></i></div>
+                        <div class="play-btn-overlay"><div class="play-circle"><i class="fas fa-play" style="margin-left:3px"></i></div></div>
                     </div>
                 </div>
                 <div class="gallery-slide" onclick="openLightbox('vimeo','1219281398')">
                     <div class="video-thumb-slide">
                         <img src="https://vumbnail.com/1219281398.jpg" alt="Linimasa (7)" loading="lazy">
-                        <div class="play-btn-overlay"><i class="fas fa-play" style="margin-left:4px"></i></div>
+                        <div class="play-btn-overlay"><div class="play-circle"><i class="fas fa-play" style="margin-left:3px"></i></div></div>
                     </div>
                 </div>
                 <div class="gallery-slide" onclick="openLightbox('vimeo','1219281382')">
                     <div class="video-thumb-slide">
                         <img src="https://vumbnail.com/1219281382.jpg" alt="Linimasa (6)" loading="lazy">
-                        <div class="play-btn-overlay"><i class="fas fa-play" style="margin-left:4px"></i></div>
+                        <div class="play-btn-overlay"><div class="play-circle"><i class="fas fa-play" style="margin-left:3px"></i></div></div>
                     </div>
                 </div>
                 <div class="gallery-slide" onclick="openLightbox('vimeo','1219281340')">
                     <div class="video-thumb-slide">
                         <img src="https://vumbnail.com/1219281340.jpg" alt="Linimasa (5)" loading="lazy">
-                        <div class="play-btn-overlay"><i class="fas fa-play" style="margin-left:4px"></i></div>
+                        <div class="play-btn-overlay"><div class="play-circle"><i class="fas fa-play" style="margin-left:3px"></i></div></div>
                     </div>
                 </div>
                 <div class="gallery-slide" onclick="openLightbox('vimeo','1219281331')">
                     <div class="video-thumb-slide">
                         <img src="https://vumbnail.com/1219281331.jpg" alt="Linimasa (13)" loading="lazy">
-                        <div class="play-btn-overlay"><i class="fas fa-play" style="margin-left:4px"></i></div>
+                        <div class="play-btn-overlay"><div class="play-circle"><i class="fas fa-play" style="margin-left:3px"></i></div></div>
                     </div>
                 </div>
                 <div class="gallery-slide" onclick="openLightbox('vimeo','1219284113')">
                     <div class="video-thumb-slide">
                         <img src="https://vumbnail.com/1219284113.jpg" alt="Rakorwil" loading="lazy">
-                        <div class="play-btn-overlay"><i class="fas fa-play" style="margin-left:4px"></i></div>
+                        <div class="play-btn-overlay"><div class="play-circle"><i class="fas fa-play" style="margin-left:3px"></i></div></div>
                     </div>
                 </div>
 </div>
