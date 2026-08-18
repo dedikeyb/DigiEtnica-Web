@@ -35,13 +35,13 @@
         .container { max-width:1200px; margin:0 auto; padding:0 24px; }
 
         /* Cursor */
-        .cursor-dot { width:8px; height:8px; background:var(--accent-gold); border-radius:50%; position:fixed; pointer-events:none; z-index:9999; mix-blend-mode:difference; }
-        .cursor-ring { width:40px; height:40px; border:1px solid rgba(201,168,76,0.5); border-radius:50%; position:fixed; pointer-events:none; z-index:9998; transition:all 0.15s ease-out; }
+        .cursor-dot { display:none !important; }
+        .cursor-ring { display:none !important; }
 
         /* Navbar */
         .navbar { position:fixed; top:0; left:0; right:0; z-index:1000; padding:24px 0; transition:all 0.5s ease; }
         .navbar.scrolled { background:rgba(5,5,8,0.95); backdrop-filter:blur(20px); padding:12px 0; border-bottom:var(--border-subtle); }
-        .nav-container { max-width:1200px; margin:0 auto; padding:0 40px; display:flex; align-items:center; justify-content:space-between; }
+        .nav-container { max-width:1200px; margin:0 auto; padding:0 40px; display:flex; align-items:center; justify-content:space-between; position:relative; z-index:1001; }
         .nav-logo { display:flex; align-items:center; gap:12px; }
         .nav-logo img { height:36px; width:36px; object-fit:contain; filter:brightness(0) invert(1); }
         .nav-logo-text { font-family:var(--font-heading); font-size:1.1rem; font-weight:600; letter-spacing:3px; color:var(--accent-gold); }
@@ -59,7 +59,7 @@
         .particle { position:absolute; width:2px; height:2px; background:var(--accent-gold); border-radius:50%; animation:particleFloat 15s infinite ease-in-out; }
         @keyframes particleFloat { 0%, 100% { transform:translate(0, 0); opacity:0; } 10% { opacity:0.6; } 50% { transform:translate(100px, -200px); opacity:0.3; } 90% { opacity:0; } }
         .hero-content { position:relative; z-index:2; padding:100px 40px 0; max-width:1200px; margin:0 auto; width:100%; }
-        .hero-tag { display:inline-flex; align-items:center; gap:12px; padding:8px 20px; border:var(--border-gold); margin-bottom:40px; animation:fadeInUp 1s ease 0.2s both; }
+        .hero-tag { display:none !important; }
         .hero-tag span { font-size:0.7rem; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--accent-gold); }
         .tag-dot { width:6px; height:6px; background:var(--accent-gold); border-radius:50%; animation:pulse 2s infinite; }
         .hero-title { font-family:var(--font-display); font-size:clamp(3rem, 8vw, 7rem); font-weight:800; line-height:1.05; margin-bottom:32px; animation:fadeInUp 1s ease 0.4s both; }
@@ -213,8 +213,8 @@
     </style>
 </head>
 <body>
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
+    <!-- cursor removed -->
+    <!-- cursor removed -->
 
     <nav class="navbar" id="navbar">
         <div class="nav-container">
