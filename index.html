@@ -81,8 +81,11 @@
         /* Why */
         .why{background:var(--bg)}
         .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
-        .why-card{padding:40px 28px;background:var(--bg2);border:var(--border);text-align:center;transition:all 0.4s ease}
+        .why-card{position:relative;padding:60px 28px;background:var(--bg2);border:var(--border);text-align:center;transition:all 0.4s ease;background-size:cover;background-position:center;overflow:hidden}
         .why-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px)}
+        .why-overlay{position:absolute;inset:0;background:rgba(5,5,8,0.8);transition:background 0.4s ease}
+        .why-card:hover .why-overlay{background:rgba(5,5,8,0.7)}
+        .why-content{position:relative;z-index:1}
         .why-icon{width:60px;height:60px;display:flex;align-items:center;justify-content:center;border:var(--border-gold);margin:0 auto 20px;color:var(--gold);font-size:1.3rem}
         .why-card h3{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;letter-spacing:1px;margin-bottom:8px}
         .why-card p{font-size:0.9rem;color:var(--dim)}
@@ -270,20 +273,29 @@
         <h2 class="section-title">Mengapa DIGIETHNICA?</h2>
         <p class="section-text">Kami tidak hanya memainkan musik tradisional. Kami menghadirkan pengalaman budaya yang modern, kreatif, dan berkesan.</p>
         <div class="why-grid">
-            <div class="why-card">
-                <div class="why-icon"><i class="fas fa-lightbulb"></i></div>
-                <h3>Original Concept</h3>
-                <p>Konsep pertunjukan yang unik dan dirancang khusus.</p>
+            <div class="why-card" style="background-image:url('images/gallery/photo_010.jpg')">
+                <div class="why-overlay"></div>
+                <div class="why-content">
+                    <div class="why-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Original Concept</h3>
+                    <p>Konsep pertunjukan yang unik dan dirancang khusus.</p>
+                </div>
             </div>
-            <div class="why-card">
-                <div class="why-icon"><i class="fas fa-users-gear"></i></div>
-                <h3>Professional Team</h3>
-                <p>Tim musisi, penari, dan visual artist berpengalaman.</p>
+            <div class="why-card" style="background-image:url('images/gallery/photo_025.jpg')">
+                <div class="why-overlay"></div>
+                <div class="why-content">
+                    <div class="why-icon"><i class="fas fa-users-gear"></i></div>
+                    <h3>Professional Team</h3>
+                    <p>Tim musisi, penari, dan visual artist berpengalaman.</p>
+                </div>
             </div>
-            <div class="why-card">
-                <div class="why-icon"><i class="fas fa-arrows-left-right"></i></div>
-                <h3>Flexible Performer</h3>
-                <p>Formasi yang dapat disesuaikan dengan skala acara.</p>
+            <div class="why-card" style="background-image:url('images/gallery/photo_045.jpg')">
+                <div class="why-overlay"></div>
+                <div class="why-content">
+                    <div class="why-icon"><i class="fas fa-arrows-left-right"></i></div>
+                    <h3>Flexible Performer</h3>
+                    <p>Formasi yang dapat disesuaikan dengan skala acara.</p>
+                </div>
             </div>
         </div>
     </div>
