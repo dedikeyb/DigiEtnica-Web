@@ -130,10 +130,11 @@
         .gallery-dots{display:flex;justify-content:center;gap:10px;margin-top:20px}
         .gallery-dot{width:8px;height:8px;border-radius:50%;background:var(--dim);cursor:pointer;transition:all 0.3s ease}
         .gallery-dot.active{background:var(--gold);transform:scale(1.3)}
-        .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(5,5,8,0.7);border:1px solid rgba(201,168,76,0.3);color:var(--gold);cursor:pointer;z-index:5;transition:all 0.3s ease;font-size:0.9rem}
-        .gallery-nav:hover{background:var(--gold);color:var(--bg)}
-        .gallery-nav.prev{left:12px}
-        .gallery-nav.next{right:12px}
+        .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);border:1px solid rgba(201,168,76,0.4);color:var(--gold);cursor:pointer;z-index:10;transition:all 0.3s ease;font-size:1rem;backdrop-filter:blur(4px)}
+        .gallery-nav:hover{background:var(--gold);color:var(--bg);transform:translateY(-50%) scale(1.05)}
+        .gallery-nav.prev{left:16px}
+        .gallery-nav.next{right:16px}
+        @media(max-width:768px){.gallery-nav{width:40px;height:40px;font-size:0.9rem}.gallery-nav.prev{left:8px}.gallery-nav.next{right:8px}}
         /* Video Thumbnail in Gallery */
                                 
         /* Lightbox */
@@ -747,6 +748,12 @@ function stopAutoSlide(){clearInterval(slideInterval)}
 document.querySelector('.gallery-slider').addEventListener('mouseenter',stopAutoSlide);
 document.querySelector('.gallery-slider').addEventListener('mouseleave',startAutoSlide);
 startAutoSlide();
+
+let touchStartX=0;let touchEndX=0;const slider=document.querySelector('.gallery-slider');
+slider.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX},{passive:true});
+slider.addEventListener('touchend',e=>{touchEndX=e.changedTouches[0].screenX;handleSwipe()},{passive:true});
+function handleSwipe(){const diff=touchStartX-touchEndX;if(Math.abs(diff)>50){if(diff>0)moveSlide(1);else moveSlide(-1)}}
+
 function openLightbox(type,idx){const lb=document.getElementById('lightbox');const c=document.getElementById('lightboxContent');lb.classList.add('active');if(type==='photo'){c.innerHTML='<div style="display:flex;flex-direction:column;align-items:center;gap:16px;color:var(--dim)"><i class="fas fa-image" style="font-size:5rem;opacity:0.3;color:var(--gold)"></i><span style="font-size:1.1rem">Foto '+(idx+1)+'</span></div>'}else if(type==='youtube'){c.innerHTML='<iframe src="https://www.youtube.com/embed/'+idx+'?autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>'}else{c.innerHTML='<iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>'}document.body.style.overflow='hidden'}
 function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.getElementById('lightboxContent').innerHTML='';document.body.style.overflow=''}
 document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox()});
