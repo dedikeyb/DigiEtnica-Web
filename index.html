@@ -705,7 +705,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 function openLightbox(type,idx){const lb=document.getElementById('lightbox');const c=document.getElementById('lightboxContent');lb.classList.add('active');if(type==='photo'){const num=String(idx+1).padStart(3,'0');c.innerHTML='<img src="images/gallery/photo_'+num+'.jpg" alt="Galeri" style="max-width:90vw;max-height:85vh;object-fit:contain">';}else if(type==='youtube'){c.innerHTML='<iframe src="https://www.youtube.com/embed/'+idx+'?autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>'}else{c.innerHTML='<iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>'}document.body.style.overflow='hidden'}
 function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.getElementById('lightboxContent').innerHTML='';document.body.style.overflow=''}
-document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox()});
+var lbEl=document.getElementById('lightbox');if(lbEl)lbEl.addEventListener('click',function(e){if(e.target===this)closeLightbox()});
 
 
         // Gallery Slideshow
@@ -784,5 +784,11 @@ document.getElementById('lightbox').addEventListener('click',function(e){if(e.ta
         }
         
     </script>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <div class="lightbox-content" id="lightboxContent"></div>
+</div>
 </body>
 </html>
