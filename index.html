@@ -187,6 +187,24 @@
             .contact-channels{flex-direction:column;align-items:center}
         }
     </style>
+<!-- DIGIETHNICA REDESIGN PREVIEW -->
+<style>
+/* REDESIGN PREVIEW: layout/UI only. Existing content and assets remain untouched. */
+:root{--bg:#050505;--gold:#c9a84c;--text:#f5f3ed;--muted:#9a978e}
+body{background:var(--bg);color:var(--text);font-size:15px;letter-spacing:.01em}
+.container{max-width:1240px;padding:0 42px}
+.hero{min-height:100svh;padding:48px 42px;justify-content:flex-end;align-items:flex-start;text-align:left;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08) 20%,rgba(0,0,0,.25) 48%,rgba(5,5,5,.94) 100%);pointer-events:none}
+.hero>*{position:relative;z-index:2}.hero h1{max-width:1050px;font-size:clamp(4rem,9vw,9rem);line-height:.88;letter-spacing:-.065em;text-transform:uppercase}.hero p{max-width:650px;font-size:clamp(1rem,1.6vw,1.25rem);color:#d0cec6;margin-top:28px}
+.section-label{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600}.section-divider{width:64px;height:1px;background:var(--gold);opacity:.7;margin:18px 0 28px}.section-title{font-size:clamp(2.4rem,5vw,5.2rem);line-height:.98;letter-spacing:-.045em;max-width:900px}.section-text{max-width:720px;color:#aaa79f;font-size:1.05rem;margin-top:24px}section{position:relative;padding:130px 0}
+.about:before,.elements:before,.events:before,.why:before,.gallery:before{content:"";position:absolute;top:0;left:42px;right:42px;height:1px;background:rgba(255,255,255,.08)}
+.elements-grid,.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.09);margin-top:58px}.element-card,.event-card{background:var(--bg);padding:42px 34px;min-height:250px;border:0;transition:transform .35s ease,background .35s ease}.element-card:hover,.event-card:hover{transform:translateY(-5px);background:#151515}.element-icon,.event-icon{font-size:1.4rem;color:var(--gold);margin-bottom:48px}.element-card p,.event-card p{color:var(--muted);font-size:.9rem}
+.vm-quote-wrap{max-width:1000px;margin:50px auto 0;text-align:center;padding:70px 30px;border-top:1px solid rgba(201,168,76,.22);border-bottom:1px solid rgba(201,168,76,.22)}.vm-quote{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,4.5rem);line-height:1.08;font-weight:400}.vm-quote-mark{color:var(--gold);font-size:5rem;line-height:.3;display:block}.vm-mission-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.08);margin-top:28px}.vm-mission-card{background:var(--bg);padding:32px;min-height:150px}.vm-mission-num{font-size:.7rem;color:var(--gold);letter-spacing:.16em}.vm-mission-text{margin-top:28px;color:#d3d0c8;max-width:390px}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:58px}.why-card{min-height:430px;border:1px solid rgba(255,255,255,.1);overflow:hidden}.why-overlay{background:linear-gradient(180deg,transparent 20%,rgba(0,0,0,.9) 100%)}.why-content{padding:32px}
+.gallery-header{margin-bottom:55px}.gallery-slides{gap:14px}.gallery-slide-item{border:1px solid rgba(255,255,255,.08);transition:transform .35s ease,border-color .35s ease}.gallery-slide-item:hover{transform:scale(.985);border-color:rgba(201,168,76,.5)}
+.video-section{margin-top:100px;padding-top:80px;border-top:1px solid rgba(255,255,255,.08)}.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}.video-item{border:1px solid rgba(255,255,255,.1);transition:transform .35s ease,border-color .35s ease}.video-item:hover{transform:translateY(-4px);border-color:rgba(201,168,76,.5)}footer{border-top:1px solid rgba(255,255,255,.1);padding:70px 0!important}
+@media(max-width:800px){.container{padding:0 22px}.hero{padding:34px 22px}.hero h1{font-size:clamp(3.2rem,16vw,6rem)}section{padding:90px 0}.about:before,.elements:before,.events:before,.why:before,.gallery:before{left:22px;right:22px}.elements-grid,.events-grid,.why-grid,.video-grid,.vm-mission-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
