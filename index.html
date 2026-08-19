@@ -753,23 +753,35 @@ document.getElementById('lightbox').addEventListener('click',function(e){if(e.ta
             clearInterval(autoSlideInterval);
         }
         
-        // Create dots
-        const dotsContainer = document.getElementById('slideshowDots');
-        for (let i = 0; i < totalPages; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'slideshow-dot' + (i === 0 ? ' active' : '');
-            dot.onclick = () => goToSlideshowPage(i);
-            dotsContainer.appendChild(dot);
+        // Initialize (wait for DOM)
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSlideshow);
+        } else {
+            initSlideshow();
         }
         
-        // Initialize
-        updateSlideshow();
-        startAutoSlide();
-        
-        // Pause on hover
-        const slideshow = document.getElementById('gallerySlideshow');
-        slideshow.addEventListener('mouseenter', stopAutoSlide);
-        slideshow.addEventListener('mouseleave', startAutoSlide);
+        function initSlideshow() {
+            updateSlideshow();
+            startAutoSlide();
+            
+            // Create dots
+            const dotsContainer = document.getElementById('slideshowDots');
+            if (dotsContainer) {
+                for (let i = 0; i < totalPages; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'slideshow-dot' + (i === 0 ? ' active' : '');
+                    dot.onclick = () => goToSlideshowPage(i);
+                    dotsContainer.appendChild(dot);
+                }
+            }
+            
+            // Pause on hover
+            const slideshow = document.getElementById('gallerySlideshow');
+            if (slideshow) {
+                slideshow.addEventListener('mouseenter', stopAutoSlide);
+                slideshow.addEventListener('mouseleave', startAutoSlide);
+            }
+        }
         
     </script>
 </body>
