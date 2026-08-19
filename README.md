@@ -1,26 +1,53 @@
-# DigiEtnica-Web
+# DigiEtnica Website
 
-Landing page portofolio untuk **DIGIETHNICA** — Creative Performance Collective.
+> **Creative Performance Collective — Where Culture Meets Technology**
 
-## Tema
-Dark · Cinematic · Cultural · Technology
+Website resmi DIGIETHNICA. Landing page portofolio dengan tema dark cinematic cultural technology.
 
-## Fitur
-- 🎭 Custom cursor
-- ✨ Hero dengan animated particles
-- 📸 Portfolio gallery dengan filter
-- 📝 Contact form
-- 🔗 Social media links (Instagram & WhatsApp)
-- 📱 Responsive design
+## 🌐 Live
 
-## Tech Stack
-- HTML5 + CSS3 + Vanilla JavaScript
-- Google Fonts (Playfair Display + Space Grotesk + Inter)
-- Font Awesome Icons
+**https://dedikeyb.github.io/DigiEtnica-Web/**
 
-## Deploy
-GitHub Pages dari branch `main`.
+## 📋 Sections
+
+| Section | Konten |
+|---------|--------|
+| Hero | Logo + tagline dengan background foto pertunjukan |
+| Tentang | Deskripsi singkat DIGIETHNICA |
+| Visi & Misi | Quote visi + 5 kartu misi |
+| Performance Elements | Traditional, Electronic, World Music |
+| Cocok Untuk | Festival, Corporate, International |
+| Mengapa DIGIETHNICA | 3 cards dengan background foto |
+| Galeri | 78 foto slideshow + 11 video YouTube |
+| Contact | Instagram & WhatsApp |
+| Footer | Logo + Thank You |
+
+## 🎬 Video
+
+Video di-host di YouTube (Unlisted) untuk proteksi anti-download.
+
+## 📸 Galeri
+
+78 foto pertunjukan dalam grid slideshow otomatis (4 kolom × 3 baris).
+
+## 🛠️ Tech Stack
+
+- HTML5 / CSS3 / Vanilla JavaScript
+- Google Fonts (Playfair Display + Space Grotesk)
+- Font Awesome icons
+- GitHub Pages hosting
+
+## 📁 Structure
+
+```
+DigiEtnica-Web/
+├── index.html          # Single-page website
+├── images/
+│   └── gallery/        # 78 foto pertunjukan
+├── .gitignore
+└── README.md
+```
 
 ---
 
-Made with ❤️ by DIGIETHNICA
+© 2025 DIGIETHNICA — Creative Performance Collective

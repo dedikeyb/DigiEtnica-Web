@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+._*
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Videos (hosted on YouTube)
+videos/
+
+# Large files
+*.mp4
+*.mov
+*.avi
