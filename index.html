@@ -124,16 +124,30 @@
         .gallery{background:var(--bg);position:relative;padding:100px 0}
         .gallery::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2),transparent)}
         .gallery-header{text-align:center;margin-bottom:48px}
-        .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
-        .gallery-grid .gallery-item{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,0.04);transition:all 0.3s ease}
-        .gallery-grid .gallery-item:hover{border-color:rgba(201,168,76,0.3);transform:scale(1.03);z-index:2}
-        .gallery-grid .gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
-        .gallery-grid .gallery-item .play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);opacity:0;transition:opacity 0.3s ease}
-        .gallery-grid .gallery-item:hover .play-overlay{opacity:1}
-        .gallery-grid .gallery-item .play-btn{width:48px;height:48px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1rem;background:rgba(0,0,0,0.5);transition:all 0.3s ease}
-        .gallery-grid .gallery-item:hover .play-btn{background:var(--gold);color:var(--bg)}
+        
+        
+        
+        
+        
+        
+        
+        
         
         /* Video Section */
+        
+        /* Gallery Slideshow */
+        .gallery-slideshow{position:relative;margin-top:40px;overflow:hidden}
+        .gallery-slides{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;transition:opacity 0.5s ease}
+        .gallery-slide-item{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,0.04);transition:all 0.3s ease}
+        .gallery-slide-item:hover{border-color:rgba(201,168,76,0.3);transform:scale(1.02);z-index:2}
+        .gallery-slide-item img{width:100%;height:100%;object-fit:cover;display:block}
+        .slideshow-nav{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);display:flex;justify-content:space-between;pointer-events:none;padding:0 12px;z-index:5}
+        .slideshow-btn{width:44px;height:44px;border:1px solid rgba(201,168,76,0.4);background:rgba(5,5,8,0.7);backdrop-filter:blur(8px);color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s ease;pointer-events:auto;font-size:0.9rem}
+        .slideshow-btn:hover{background:var(--gold);color:var(--bg)}
+        .slideshow-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+        .slideshow-dot{width:8px;height:8px;border-radius:50%;background:var(--dim);cursor:pointer;transition:all 0.3s ease}
+        .slideshow-dot.active{background:var(--gold);transform:scale(1.3)}
+        @media(max-width:768px){.gallery-slides{grid-template-columns:repeat(2,1fr);gap:8px}.slideshow-btn{width:36px;height:36px;font-size:0.8rem}}
         .video-section{margin-top:60px}
         .video-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
         .video-grid .video-item{position:relative;aspect-ratio:16/9;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,0.04);transition:all 0.3s ease}
@@ -145,7 +159,7 @@
         .video-grid .video-item:hover .play-btn{background:var(--gold);color:var(--bg);transform:scale(1.1)}
         
         /* Responsive gallery */
-        @media(max-width:1024px){.gallery-grid{grid-template-columns:repeat(3,1fr)}.video-grid{grid-template-columns:repeat(3,1fr)}}
+        @media(max-width:1024px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.video-grid{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr);gap:8px}.video-grid{grid-template-columns:repeat(2,1fr);gap:8px}}
         @media(max-width:480px){.gallery-grid{grid-template-columns:repeat(2,1fr);gap:6px}.video-grid{grid-template-columns:1fr}}
                                 
@@ -324,241 +338,249 @@
         </div>
         
         <!-- Photo Grid -->
-        <div class="gallery-grid">
-                <div class="gallery-item" onclick="openLightbox('photo',0)">
+        <div class="gallery-slideshow" id="gallerySlideshow">
+            <div class="gallery-slides" id="gallerySlides">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',0)">
                     <img src="images/gallery/photo_001.jpg" alt="Galeri DIGIETHNICA 1" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',1)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',1)">
                     <img src="images/gallery/photo_002.jpg" alt="Galeri DIGIETHNICA 2" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',2)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',2)">
                     <img src="images/gallery/photo_003.jpg" alt="Galeri DIGIETHNICA 3" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',3)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',3)">
                     <img src="images/gallery/photo_004.jpg" alt="Galeri DIGIETHNICA 4" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',4)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',4)">
                     <img src="images/gallery/photo_005.jpg" alt="Galeri DIGIETHNICA 5" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',5)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',5)">
                     <img src="images/gallery/photo_006.jpg" alt="Galeri DIGIETHNICA 6" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',6)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',6)">
                     <img src="images/gallery/photo_007.jpg" alt="Galeri DIGIETHNICA 7" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',7)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',7)">
                     <img src="images/gallery/photo_008.jpg" alt="Galeri DIGIETHNICA 8" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',8)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',8)">
                     <img src="images/gallery/photo_009.jpg" alt="Galeri DIGIETHNICA 9" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',9)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',9)">
                     <img src="images/gallery/photo_010.jpg" alt="Galeri DIGIETHNICA 10" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',10)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',10)">
                     <img src="images/gallery/photo_011.jpg" alt="Galeri DIGIETHNICA 11" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',11)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',11)">
                     <img src="images/gallery/photo_012.jpg" alt="Galeri DIGIETHNICA 12" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',12)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',12)">
                     <img src="images/gallery/photo_013.jpg" alt="Galeri DIGIETHNICA 13" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',13)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',13)">
                     <img src="images/gallery/photo_014.jpg" alt="Galeri DIGIETHNICA 14" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',14)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',14)">
                     <img src="images/gallery/photo_015.jpg" alt="Galeri DIGIETHNICA 15" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',15)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',15)">
                     <img src="images/gallery/photo_016.jpg" alt="Galeri DIGIETHNICA 16" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',16)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',16)">
                     <img src="images/gallery/photo_017.jpg" alt="Galeri DIGIETHNICA 17" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',17)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',17)">
                     <img src="images/gallery/photo_018.jpg" alt="Galeri DIGIETHNICA 18" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',18)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',18)">
                     <img src="images/gallery/photo_019.jpg" alt="Galeri DIGIETHNICA 19" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',19)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',19)">
                     <img src="images/gallery/photo_020.jpg" alt="Galeri DIGIETHNICA 20" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',20)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',20)">
                     <img src="images/gallery/photo_021.jpg" alt="Galeri DIGIETHNICA 21" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',21)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',21)">
                     <img src="images/gallery/photo_022.jpg" alt="Galeri DIGIETHNICA 22" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',22)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',22)">
                     <img src="images/gallery/photo_023.jpg" alt="Galeri DIGIETHNICA 23" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',23)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',23)">
                     <img src="images/gallery/photo_024.jpg" alt="Galeri DIGIETHNICA 24" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',24)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',24)">
                     <img src="images/gallery/photo_025.jpg" alt="Galeri DIGIETHNICA 25" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',25)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',25)">
                     <img src="images/gallery/photo_026.jpg" alt="Galeri DIGIETHNICA 26" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',26)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',26)">
                     <img src="images/gallery/photo_027.jpg" alt="Galeri DIGIETHNICA 27" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',27)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',27)">
                     <img src="images/gallery/photo_028.jpg" alt="Galeri DIGIETHNICA 28" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',28)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',28)">
                     <img src="images/gallery/photo_029.jpg" alt="Galeri DIGIETHNICA 29" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',29)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',29)">
                     <img src="images/gallery/photo_030.jpg" alt="Galeri DIGIETHNICA 30" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',30)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',30)">
                     <img src="images/gallery/photo_031.jpg" alt="Galeri DIGIETHNICA 31" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',31)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',31)">
                     <img src="images/gallery/photo_032.jpg" alt="Galeri DIGIETHNICA 32" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',32)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',32)">
                     <img src="images/gallery/photo_033.jpg" alt="Galeri DIGIETHNICA 33" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',33)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',33)">
                     <img src="images/gallery/photo_034.jpg" alt="Galeri DIGIETHNICA 34" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',34)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',34)">
                     <img src="images/gallery/photo_035.jpg" alt="Galeri DIGIETHNICA 35" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',35)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',35)">
                     <img src="images/gallery/photo_036.jpg" alt="Galeri DIGIETHNICA 36" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',36)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',36)">
                     <img src="images/gallery/photo_037.jpg" alt="Galeri DIGIETHNICA 37" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',37)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',37)">
                     <img src="images/gallery/photo_038.jpg" alt="Galeri DIGIETHNICA 38" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',38)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',38)">
                     <img src="images/gallery/photo_039.jpg" alt="Galeri DIGIETHNICA 39" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',39)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',39)">
                     <img src="images/gallery/photo_040.jpg" alt="Galeri DIGIETHNICA 40" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',40)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',40)">
                     <img src="images/gallery/photo_041.jpg" alt="Galeri DIGIETHNICA 41" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',41)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',41)">
                     <img src="images/gallery/photo_042.jpg" alt="Galeri DIGIETHNICA 42" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',42)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',42)">
                     <img src="images/gallery/photo_043.jpg" alt="Galeri DIGIETHNICA 43" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',43)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',43)">
                     <img src="images/gallery/photo_044.jpg" alt="Galeri DIGIETHNICA 44" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',44)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',44)">
                     <img src="images/gallery/photo_045.jpg" alt="Galeri DIGIETHNICA 45" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',45)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',45)">
                     <img src="images/gallery/photo_046.jpg" alt="Galeri DIGIETHNICA 46" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',46)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',46)">
                     <img src="images/gallery/photo_047.jpg" alt="Galeri DIGIETHNICA 47" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',47)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',47)">
                     <img src="images/gallery/photo_048.jpg" alt="Galeri DIGIETHNICA 48" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',48)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',48)">
                     <img src="images/gallery/photo_049.jpg" alt="Galeri DIGIETHNICA 49" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',49)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',49)">
                     <img src="images/gallery/photo_050.jpg" alt="Galeri DIGIETHNICA 50" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',50)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',50)">
                     <img src="images/gallery/photo_051.jpg" alt="Galeri DIGIETHNICA 51" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',51)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',51)">
                     <img src="images/gallery/photo_052.jpg" alt="Galeri DIGIETHNICA 52" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',52)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',52)">
                     <img src="images/gallery/photo_053.jpg" alt="Galeri DIGIETHNICA 53" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',53)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',53)">
                     <img src="images/gallery/photo_054.jpg" alt="Galeri DIGIETHNICA 54" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',54)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',54)">
                     <img src="images/gallery/photo_055.jpg" alt="Galeri DIGIETHNICA 55" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',55)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',55)">
                     <img src="images/gallery/photo_056.jpg" alt="Galeri DIGIETHNICA 56" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',56)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',56)">
                     <img src="images/gallery/photo_057.jpg" alt="Galeri DIGIETHNICA 57" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',57)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',57)">
                     <img src="images/gallery/photo_058.jpg" alt="Galeri DIGIETHNICA 58" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',58)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',58)">
                     <img src="images/gallery/photo_059.jpg" alt="Galeri DIGIETHNICA 59" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',59)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',59)">
                     <img src="images/gallery/photo_060.jpg" alt="Galeri DIGIETHNICA 60" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',60)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',60)">
                     <img src="images/gallery/photo_061.jpg" alt="Galeri DIGIETHNICA 61" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',61)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',61)">
                     <img src="images/gallery/photo_062.jpg" alt="Galeri DIGIETHNICA 62" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',62)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',62)">
                     <img src="images/gallery/photo_063.jpg" alt="Galeri DIGIETHNICA 63" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',63)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',63)">
                     <img src="images/gallery/photo_064.jpg" alt="Galeri DIGIETHNICA 64" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',64)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',64)">
                     <img src="images/gallery/photo_065.jpg" alt="Galeri DIGIETHNICA 65" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',65)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',65)">
                     <img src="images/gallery/photo_066.jpg" alt="Galeri DIGIETHNICA 66" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',66)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',66)">
                     <img src="images/gallery/photo_067.jpg" alt="Galeri DIGIETHNICA 67" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',67)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',67)">
                     <img src="images/gallery/photo_068.jpg" alt="Galeri DIGIETHNICA 68" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',68)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',68)">
                     <img src="images/gallery/photo_069.jpg" alt="Galeri DIGIETHNICA 69" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',69)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',69)">
                     <img src="images/gallery/photo_070.jpg" alt="Galeri DIGIETHNICA 70" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',70)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',70)">
                     <img src="images/gallery/photo_071.jpg" alt="Galeri DIGIETHNICA 71" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',71)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',71)">
                     <img src="images/gallery/photo_072.jpg" alt="Galeri DIGIETHNICA 72" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',72)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',72)">
                     <img src="images/gallery/photo_073.jpg" alt="Galeri DIGIETHNICA 73" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',73)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',73)">
                     <img src="images/gallery/photo_074.jpg" alt="Galeri DIGIETHNICA 74" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',74)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',74)">
                     <img src="images/gallery/photo_075.jpg" alt="Galeri DIGIETHNICA 75" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',75)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',75)">
                     <img src="images/gallery/photo_076.jpg" alt="Galeri DIGIETHNICA 76" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',76)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',76)">
                     <img src="images/gallery/photo_077.jpg" alt="Galeri DIGIETHNICA 77" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox('photo',77)">
+                <div class="gallery-slide-item" onclick="openLightbox('photo',77)">
                     <img src="images/gallery/photo_078.jpg" alt="Galeri DIGIETHNICA 78" loading="lazy">
                 </div>
+            </div>
+            <div class="slideshow-nav">
+                <button class="slideshow-btn prev" onclick="slideshowPrev()"><i class="fas fa-chevron-left"></i></button>
+                <button class="slideshow-btn next" onclick="slideshowNext()"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="slideshow-dots" id="slideshowDots"></div>
+        </div>
         </div>
         
         <!-- Video Grid -->
@@ -685,6 +707,70 @@ function openLightbox(type,idx){const lb=document.getElementById('lightbox');con
 function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.getElementById('lightboxContent').innerHTML='';document.body.style.overflow=''}
 document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox()});
 
-</script>
+
+        // Gallery Slideshow
+        let currentSlideshowPage = 0;
+        const itemsPerPage = 12; // 3x4 grid
+        const totalItems = 78;
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        let autoSlideInterval;
+        
+        function updateSlideshow() {
+            const slides = document.querySelectorAll('.gallery-slide-item');
+            const startIdx = currentSlideshowPage * itemsPerPage;
+            const endIdx = Math.min(startIdx + itemsPerPage, totalItems);
+            
+            slides.forEach((slide, i) => {
+                slide.style.display = (i >= startIdx && i < endIdx) ? 'block' : 'none';
+            });
+            
+            // Update dots
+            document.querySelectorAll('.slideshow-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlideshowPage);
+            });
+        }
+        
+        function slideshowNext() {
+            currentSlideshowPage = (currentSlideshowPage + 1) % totalPages;
+            updateSlideshow();
+        }
+        
+        function slideshowPrev() {
+            currentSlideshowPage = (currentSlideshowPage - 1 + totalPages) % totalPages;
+            updateSlideshow();
+        }
+        
+        function goToSlideshowPage(page) {
+            currentSlideshowPage = page;
+            updateSlideshow();
+        }
+        
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(slideshowNext, 4000);
+        }
+        
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+        
+        // Create dots
+        const dotsContainer = document.getElementById('slideshowDots');
+        for (let i = 0; i < totalPages; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'slideshow-dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToSlideshowPage(i);
+            dotsContainer.appendChild(dot);
+        }
+        
+        // Initialize
+        updateSlideshow();
+        startAutoSlide();
+        
+        // Pause on hover
+        const slideshow = document.getElementById('gallerySlideshow');
+        slideshow.addEventListener('mouseenter', stopAutoSlide);
+        slideshow.addEventListener('mouseleave', startAutoSlide);
+        
+    </script>
 </body>
 </html>
