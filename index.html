@@ -46,17 +46,23 @@
         .about{background:var(--bg2);position:relative}
         .about::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2),transparent)}
 
-        /* Vision */
-        .vision{background:var(--bg)}
-        .vision-quote{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-style:italic;text-align:center;max-width:800px;margin:0 auto;line-height:1.5;color:var(--text)}
-        .vision-desc{text-align:center;color:var(--muted);max-width:600px;margin:32px auto 0;line-height:1.8}
-
-        /* Mission */
-        .mission{background:var(--bg2);position:relative}
-        .mission::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2),transparent)}
-        .mission-list{list-style:none;max-width:600px;margin:40px auto 0;display:flex;flex-direction:column;gap:20px}
-        .mission-list li{display:flex;gap:16px;align-items:flex-start;color:var(--muted);font-size:1rem}
-        .mission-list i{color:var(--gold);margin-top:5px;flex-shrink:0}
+        /* Visi & Misi Combined */
+        .vision-mission{background:var(--bg);padding:120px 0;position:relative}
+        .vision-mission::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent)}
+        .vm-quote-wrap{text-align:center;margin-bottom:60px;position:relative}
+        .vm-quote-mark{font-family:'Playfair Display',serif;font-size:6rem;color:var(--gold);opacity:0.15;line-height:1;margin-bottom:-30px;display:block}
+        .vm-quote{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,2.8vw,2rem);font-style:italic;max-width:750px;margin:0 auto;line-height:1.6;color:var(--text);position:relative}
+        .vm-divider{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:40px auto}
+        .vm-subtitle{text-align:center;color:var(--muted);font-size:0.85rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:40px}
+        .vm-mission-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:800px;margin:0 auto}
+        .vm-mission-card{background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.1);border-radius:12px;padding:28px 24px;display:flex;gap:16px;align-items:flex-start;transition:all 0.3s ease}
+        .vm-mission-card:hover{border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.03);transform:translateY(-2px)}
+        .vm-mission-num{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold);opacity:0.4;flex-shrink:0;line-height:1}
+        .vm-mission-text{color:var(--muted);font-size:0.9rem;line-height:1.7}
+        @media(max-width:768px){
+            .vm-mission-grid{grid-template-columns:1fr}
+            .vm-quote{font-size:1.2rem}
+        }
 
         /* Elements */
         .elements{background:var(--bg)}
@@ -207,31 +213,45 @@
     </div>
 </section>
 
-<!-- VISION -->
-<section class="vision" id="vision">
+<!-- VISI & MISI -->
+<section class="vision-mission" id="visimisi">
     <div class="container">
-        <span class="section-label">Visi</span>
+        <span class="section-label">Visi & Misi</span>
         <div class="section-divider"></div>
-        <h2 class="section-title">DIGIETHNICA</h2>
-        <blockquote class="vision-quote">"Budaya adalah fondasi, teknologi adalah jembatan, kreativitas adalah masa depan."</blockquote>
-        <p class="vision-desc">Menjadikan budaya sebagai inspirasi masa depan melalui inovasi musik, teknologi, dan pertunjukan kreatif.</p>
-    </div>
-</section>
+        <h2 class="section-title">Visi & Misi DIGIETHNICA</h2>
 
-<!-- MISSION -->
-<section class="mission" id="mission">
-    <div class="container">
-        <span class="section-label">Misi</span>
-        <div class="section-divider"></div>
-        <h2 class="section-title">DIGIETHNICA</h2>
-        <p class="section-text">Misi kami adalah menjadikan budaya sebagai inspirasi masa depan melalui inovasi musik, teknologi, dan pertunjukan kreatif.</p>
-        <ul class="mission-list">
-            <li><i class="fas fa-check-circle"></i>Melestarikan instrumen musik tradisional melalui pendekatan modern.</li>
-            <li><i class="fas fa-check-circle"></i>Mengembangkan pertunjukan budaya yang relevan dengan generasi saat ini.</li>
-            <li><i class="fas fa-check-circle"></i>Menggabungkan musik etnik dengan teknologi digital.</li>
-            <li><i class="fas fa-check-circle"></i>Menciptakan pengalaman pertunjukan yang imersif.</li>
-            <li><i class="fas fa-check-circle"></i>Berkolaborasi dengan berbagai komunitas kreatif.</li>
-        </ul>
+        <!-- VISI -->
+        <div class="vm-quote-wrap">
+            <span class="vm-quote-mark">"</span>
+            <blockquote class="vm-quote">Budaya adalah fondasi, teknologi adalah jembatan, kreativitas adalah masa depan.</blockquote>
+        </div>
+
+        <div class="vm-divider"></div>
+
+        <!-- MISI -->
+        <p class="vm-subtitle">Misi Kami</p>
+        <div class="vm-mission-grid">
+            <div class="vm-mission-card">
+                <span class="vm-mission-num">01</span>
+                <p class="vm-mission-text">Melestarikan instrumen musik tradisional melalui pendekatan modern.</p>
+            </div>
+            <div class="vm-mission-card">
+                <span class="vm-mission-num">02</span>
+                <p class="vm-mission-text">Mengembangkan pertunjukan budaya yang relevan dengan generasi saat ini.</p>
+            </div>
+            <div class="vm-mission-card">
+                <span class="vm-mission-num">03</span>
+                <p class="vm-mission-text">Menggabungkan musik etnik dengan teknologi digital.</p>
+            </div>
+            <div class="vm-mission-card">
+                <span class="vm-mission-num">04</span>
+                <p class="vm-mission-text">Menciptakan pengalaman pertunjukan yang imersif.</p>
+            </div>
+            <div class="vm-mission-card" style="grid-column:1/-1;max-width:390px;margin:0 auto">
+                <span class="vm-mission-num">05</span>
+                <p class="vm-mission-text">Berkolaborasi dengan berbagai komunitas kreatif.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -697,7 +717,7 @@
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
     const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')}),{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
-    document.querySelectorAll('.section-label,.section-title,.section-text,.element-card,.event-card,.why-card,.contact-item,.vision-quote,.mission-list li').forEach(el=>{el.classList.add('reveal');obs.observe(el)});
+    document.querySelectorAll('.section-label,.section-title,.section-text,.element-card,.event-card,.why-card,.contact-item,.vm-quote,.vm-mission-card').forEach(el=>{el.classList.add('reveal');obs.observe(el)});
 });
 
 
