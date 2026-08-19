@@ -703,7 +703,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 
 
-function openLightbox(type,idx){const lb=document.getElementById('lightbox');const c=document.getElementById('lightboxContent');lb.classList.add('active');if(type==='photo'){c.innerHTML='<div style="display:flex;flex-direction:column;align-items:center;gap:16px;color:var(--dim)"><i class="fas fa-image" style="font-size:5rem;opacity:0.3;color:var(--gold)"></i><span style="font-size:1.1rem">Foto '+(idx+1)+'</span></div>'}else if(type==='youtube'){c.innerHTML='<iframe src="https://www.youtube.com/embed/'+idx+'?autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>'}else{c.innerHTML='<iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>'}document.body.style.overflow='hidden'}
+function openLightbox(type,idx){const lb=document.getElementById('lightbox');const c=document.getElementById('lightboxContent');lb.classList.add('active');if(type==='photo'){const num=String(idx+1).padStart(3,'0');c.innerHTML='<img src="images/gallery/photo_'+num+'.jpg" alt="Galeri" style="max-width:90vw;max-height:85vh;object-fit:contain">';}else if(type==='youtube'){c.innerHTML='<iframe src="https://www.youtube.com/embed/'+idx+'?autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>'}else{c.innerHTML='<iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>'}document.body.style.overflow='hidden'}
 function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.getElementById('lightboxContent').innerHTML='';document.body.style.overflow=''}
 document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox()});
 
